@@ -1,16 +1,22 @@
+import s from "./Options.module.css";
+
 const Options = ({ count, updateFeedback, totalFeedback, resetCount }) => {
   return (
-    <ul>
+    <ul className={s.options}>
       {Object.keys(count).map((item) => (
         <li key={item}>
-          <button type="button" onClick={() => updateFeedback(item)}>
+          <button
+            className={s.button}
+            type="button"
+            onClick={() => updateFeedback(item)}
+          >
             {item}
           </button>
         </li>
       ))}
       {totalFeedback > 0 ? (
         <li>
-          <button type="button" onClick={resetCount}>
+          <button className={s.button} type="button" onClick={resetCount}>
             Reset
           </button>
         </li>

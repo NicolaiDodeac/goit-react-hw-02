@@ -1,0 +1,21 @@
+.options {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+  display: flex;
+  list-style: none;
+  justify-content: left;
+  gap: 20px;
+}
+
+.button {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  &:hover {
+    background-color: #e6dfdf;
+  }
+}
