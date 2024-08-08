@@ -3,22 +3,27 @@ import Description from "./components/Description/Description";
 import Options from "./components/Options/Options";
 import Feedback from "./components/Feedback/Feedback";
 import Notification from "./components/Notification/Notification";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 const initialState = {
   good: 0,
   neutral: 0,
   bad: 0,
 };
+//  Version N (1)
+
+// function App() {
+//   const [count, setCount] = useState(
+//     () => JSON.parse(window.localStorage.getItem("count")) || initialState
+//   );
+//   useEffect(() => {
+//     window.localStorage.setItem("count", JSON.stringify(count));
+//   }, [count]);
+
+// Version N (2)
 
 function App() {
-  const [count, setCount] = useState(
-    () => JSON.parse(window.localStorage.getItem("count")) || initialState
-  );
-  useEffect(() => {
-    window.localStorage.setItem("count", JSON.stringify(count));
-  }, [count]);
+  const [count, setCount] = useLocalStorage("count", initialState);
 
   const updateFeedback = (feedbackType) => {
     setCount((prevCount) => ({
